@@ -34,7 +34,7 @@ POST
         const operation = {
             "name": "Analyze Image",
             "path": "vision/v1.0/analyze",
-            "host": "api.projectoxford.ai",
+            "host": "westus.api.cognitive.microsoft.com",
             "method": "POST",
             "scheme": "https",
             "serviceId": "56f91f2d778daf23d8ec6739",
@@ -45,7 +45,7 @@ POST
             "requestBody": "Input passed within the POST body. Supported input methods: raw image binary or image URL. \n<br/>\n<br/>Input requirements: \n<ul>\n<li>Supported image formats: JPEG, PNG, GIF, BMP. </li>\n<li>Image file size must be less than 4MB.</li>\n<li>Image dimensions must be at least 50 x 50.</li>\n</ul>",
             "headers": {
                 "Content-Type": "application/json",
-                "Host": "api.projectoxford.ai"
+                "Host": "westus.api.cognitive.microsoft.com",
             },
             "parameters": [{
                 "name": "visualFeatures",
@@ -109,7 +109,7 @@ POST
         const operation = {
             "name": "Describe Image",
             "path": "vision/v1.0/describe",
-            "host": "api.projectoxford.ai",
+            "host": "westus.api.cognitive.microsoft.com",
             "method": "POST",
             "scheme": "https",
             "serviceId": "56f91f2d778daf23d8ec6739",
@@ -120,7 +120,7 @@ POST
             "requestBody": "Input passed within the POST body. Supported input methods: raw image binary or image URL. \n<br/>\n<br/>Input requirements: \n<ul>\n<li>Supported image formats: JPEG, PNG, GIF, BMP. </li>\n<li>Image file size must be less than 4MB.</li>\n<li>Image dimensions should be greater than 50 x 50.</li>\n</ul>",
             "headers": {
                 "Content-Type": "application/json",
-                "Host": "api.projectoxford.ai"
+                "Host": "westus.api.cognitive.microsoft.com",
             },
             "parameters": [{
                 "name": "maxCandidates",
@@ -170,7 +170,7 @@ POST
         const operation = {
             "name": "Get Thumbnail",
             "path": "vision/v1.0/generateThumbnail",
-            "host": "api.projectoxford.ai",
+            "host": "westus.api.cognitive.microsoft.com",
             "method": "POST",
             "scheme": "https",
             "serviceId": "56f91f2d778daf23d8ec6739",
@@ -181,7 +181,7 @@ POST
             "requestBody": "Input passed within the POST body. Supported input methods: raw image binary or image URL. \n<br/>\n<br/>Input requirements: \n<ul>\n<li>Supported image formats: JPEG, PNG, GIF, BMP. </li>\n<li>Image file size must be less than 4MB.</li>\n<li>Image dimensions should be greater than 50 x 50.</li>\n</ul>",
             "headers": {
                 "Content-Type": "application/json",
-                "Host": "api.projectoxford.ai"
+                "Host": "westus.api.cognitive.microsoft.com",
             },
             "parameters": [{
                 "name": "width",
@@ -239,7 +239,7 @@ GET
         const operation = {
             "name": "List Domain Specific Models",
             "path": "vision/v1.0/models",
-            "host": "api.projectoxford.ai",
+            "host": "westus.api.cognitive.microsoft.com",
             "method": "GET",
             "scheme": "https",
             "serviceId": "56f91f2d778daf23d8ec6739",
@@ -248,7 +248,7 @@ GET
             "description": "This operation returns the list of domain-specific models that are supported by the Computer Vision API.	Currently, the API only supports one domain-specific model: a celebrity recognizer.\n				<br>\n				<br>\n				A successful response will be returned in JSON.	If the request failed, the response will contain an error code and a message to help understand what went wrong. \n\n<h4>Http Method</h4>\nGET",
             "serviceName": "Computer Vision",
             "headers": {
-                "Host": "api.projectoxford.ai"
+                "Host": "westus.api.cognitive.microsoft.com",
             },
             "parameters": []
         };
@@ -286,7 +286,7 @@ POST
         const operation = {
             "name": "OCR",
             "path": "vision/v1.0/ocr",
-            "host": "api.projectoxford.ai",
+            "host": "westus.api.cognitive.microsoft.com",
             "method": "POST",
             "scheme": "https",
             "serviceId": "56f91f2d778daf23d8ec6739",
@@ -296,8 +296,7 @@ POST
             "serviceName": "Computer Vision",
             "requestBody": "Input passed within the POST body. Supported input methods: raw image binary or image URL. \n<br/>\n<br/>Input requirements: \n<ul>\n<li>Supported image formats: JPEG, PNG, GIF, BMP. </li>\n<li>Image file size must be less than 4MB.</li>\n<li>Image dimensions must be between 40 x 40 and 3200 x 3200 pixels, and the image cannot be larger than 100 megapixels.</li>\n</ul>\n",
             "headers": {
-                "Content-Type": "application/json",
-                "Host": "api.projectoxford.ai"
+                "Content-Type": "application/json"
             },
             "parameters": [{
                 "name": "language",
@@ -345,13 +344,13 @@ POST
         };
 
         return verifyParameters(operation, parameters)
-            .then(makeRequest({
-                operation,
-                parameters,
-                body,
-                API_KEY
-            }));
-
+            .then(() => { return makeRequest({
+                    operation,
+                    parameters,
+                    body,
+                    API_KEY
+            })});
+        
     };
     /**
 			Name: Computer Vision: Recognize Domain Specific Content
@@ -377,7 +376,7 @@ POST
         const operation = {
             "name": "Recognize Domain Specific Content",
             "path": "vision/v1.0/models/{model}/analyze",
-            "host": "api.projectoxford.ai",
+            "host": "westus.api.cognitive.microsoft.com",
             "method": "POST",
             "scheme": "https",
             "serviceId": "56f91f2d778daf23d8ec6739",
@@ -388,7 +387,7 @@ POST
             "requestBody": "Input passed within the POST body. Supported input methods: raw image binary or image URL. \n<br/>\n<br/>Input requirements: \n<ul>\n<li>Supported image formats: JPEG, PNG, GIF, BMP. </li>\n<li>Image file size must be less than 4MB.</li>\n<li>Image dimensions should be greater than 50 x 50.</li>\n</ul>",
             "headers": {
                 "Content-Type": "application/json",
-                "Host": "api.projectoxford.ai"
+                "Host": "westus.api.cognitive.microsoft.com",
             },
             "parameters": [{
                 "name": "model",
@@ -432,7 +431,7 @@ POST
         const operation = {
             "name": "Tag Image",
             "path": "vision/v1.0/tag",
-            "host": "api.projectoxford.ai",
+            "host": "westus.api.cognitive.microsoft.com",
             "method": "POST",
             "scheme": "https",
             "serviceId": "56f91f2d778daf23d8ec6739",
@@ -443,7 +442,7 @@ POST
             "requestBody": "Input passed within the POST body. Supported input methods: raw image binary or image URL. \n<br/>\n<br/>Input requirements: \n<ul>\n<li>Supported image formats: JPEG, PNG, GIF, BMP. </li>\n<li>Image file size must be less than 4MB.</li>\n<li>Image dimensions should be greater than 50 x 50.</li>\n</ul>",
             "headers": {
                 "Content-Type": "application/json",
-                "Host": "api.projectoxford.ai"
+                "Host": "westus.api.cognitive.microsoft.com",
             },
             "parameters": []
         };
